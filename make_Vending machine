@@ -1,0 +1,26 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("한국공학대학교 메카트로닉스 자판기")
+root.geometry("1600x1200")
+root.configure(bg="White")
+"""
+label_menu1 = tk.Label(root, text="text", font=("맑은 고딕", 14, "bold"),)
+label_menu1.place(x=300, y= 300)
+"""
+# 타원형 라벨 효과를 위한 캔버스 생성 및 배치
+canvas = tk.Canvas(root, width=200, height=100, bg="white", highlightthickness=0)
+canvas.place(x=150, y=50)
+
+
+def create_oval_label(text, x_radius, y_radius):
+    canvas.delete("all")  # 기존 도형 삭제
+    canvas.create_oval(10, 10, 10 + x_radius * 2, 10 + y_radius * 2, fill="blue", outline="black", width=3)
+    canvas.create_text(10 + x_radius, 10 + y_radius, text=text, font=("맑은 고딕", 14, "bold"), fill="white")
+
+# 초기 타원형 라벨 생성
+create_oval_label("안녕하세요!", 80, 30)
+
+
+
+root.mainloop()
